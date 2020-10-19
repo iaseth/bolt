@@ -1,6 +1,6 @@
 AMP = @
 
-GCC = ${AMP}gcc
+CC = ${AMP}gcc
 INCLUDE_FLAG = -Iinclude
 LINK_FLAG = -lexample
 
@@ -23,13 +23,31 @@ debug:
 	${eval AMP := }
 
 ${MAIN_OBJ}: ${MAIN_SRC}
-	${GCC} -c $< -o $@ ${INCLUDE_FLAG}
+	${CC} -c $< -o $@ ${INCLUDE_FLAG}
 
 ${CBENCH_OBJS}: build/%.o: src/%.c include/%.h
-	${GCC} -c $< -o $@ ${INCLUDE_FLAG}
+	${CC} -c $< -o $@ ${INCLUDE_FLAG}
 
 ${BIN}: ${MAIN_OBJ} ${CBENCH_OBJS}
-	${GCC} $^ -o $@ ${LINK_FLAG}
+	${CC} $^ -o $@
+
+
+
+BOLT_APP_NAMES = 
+BOLT_APP_NAMES += example
+
+BOLT_APP_EXE_PATHS = ${addsuffix .app, ${BOLT_APP_NAMES}}
+BOLT_APP_EXES = ${addprefix build/app/, ${BOLT_APP_EXE_PATHS}}
+
+${BOLT_APP_EXES}: build/app/%.app: app/%.c
+	${CC} $^ -o $@ ${INCLUDE_FLAG}
+
+app: ${BOLT_APP_EXES}
+redo-app: clean-app app
+clean-app:
+	${RM} ${BOLT_APP_EXES}
+
+
 
 redo: clean default
 
