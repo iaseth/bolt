@@ -6,16 +6,16 @@ LINK_FLAG = -lexample
 
 RM = ${AMP}rm -f
 
-CBENCH_NAMES = 
-CBENCH_NAMES += cbench_common
+BOLT_NAMES = 
+BOLT_NAMES += bolt_common
 
-CBENCH_OBJ_NAMES = ${addsuffix .o, ${CBENCH_NAMES}}
-CBENCH_OBJS = ${addprefix build/, ${CBENCH_OBJ_NAMES}}
+BOLT_OBJ_NAMES = ${addsuffix .o, ${BOLT_NAMES}}
+BOLT_OBJS = ${addprefix build/, ${BOLT_OBJ_NAMES}}
 
 MAIN_SRC = src/main.c
 MAIN_OBJ = build/main.o
 
-BIN = build/cbench
+BIN = build/bolt
 
 default: ${BIN}
 
@@ -25,10 +25,10 @@ debug:
 ${MAIN_OBJ}: ${MAIN_SRC}
 	${CC} -c $< -o $@ ${INCLUDE_FLAG}
 
-${CBENCH_OBJS}: build/%.o: src/%.c include/%.h
+${BOLT_OBJS}: build/%.o: src/%.c include/%.h
 	${CC} -c $< -o $@ ${INCLUDE_FLAG}
 
-${BIN}: ${MAIN_OBJ} ${CBENCH_OBJS}
+${BIN}: ${MAIN_OBJ} ${BOLT_OBJS}
 	${CC} $^ -o $@
 
 
@@ -60,6 +60,6 @@ move:
 clean:
 	${RM} ${BIN}
 	${RM} ${MAIN_OBJ}
-	${RM} ${CBENCH_OBJS}
+	${RM} ${BOLT_OBJS}
 
 
