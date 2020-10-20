@@ -3,6 +3,9 @@
 
 #define BOLT_MAX_NAME_LENGTH 128
 
+#define BOLT_INIT Bolt bolt = bolt_new();
+#define BOLT_CLEAN bolt = bolt_delete(bolt);
+
 struct Bolt_t;
 struct BoltAction_t;
 struct BoltExperiment_t;
