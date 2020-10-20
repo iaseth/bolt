@@ -67,36 +67,36 @@ struct BoltMilestone_t {
 };
 
 
-Bolt bolt_new();
-Bolt bolt_delete(Bolt bolt);
+Bolt bolt_new ();
+Bolt bolt_delete (Bolt bolt);
 
 void bolt_add_action (Bolt bolt, void (*func)(), char *name, long iterations);
 void bolt_add_experiment (Bolt bolt, void (*func)(), char *name, long iterations);
 void bolt_add_milestone (Bolt bolt, char *name);
 
-void bolt_run(Bolt bolt);
-void bolt_run_actions(Bolt bolt);
-void bolt_run_experiments(Bolt bolt);
+void bolt_run (Bolt bolt);
+void bolt_run_actions (Bolt bolt);
+void bolt_run_experiments (Bolt bolt);
 
-void bolt_print(Bolt bolt);
-void bolt_print_actions(Bolt bolt);
-void bolt_print_experiments(Bolt bolt);
-void bolt_print_milestones(Bolt bolt);
+void bolt_print (Bolt bolt);
+void bolt_print_actions (Bolt bolt);
+void bolt_print_experiments (Bolt bolt);
+void bolt_print_milestones (Bolt bolt);
 
-char *bolt_get_csv(Bolt bolt);
-char *bolt_get_json(Bolt bolt);
-char *bolt_get_html(Bolt bolt);
-char *bolt_get_xml(Bolt bolt);
+char *bolt_get_csv (Bolt bolt);
+char *bolt_get_json (Bolt bolt);
+char *bolt_get_html (Bolt bolt);
+char *bolt_get_xml (Bolt bolt);
 
-void bolt_print_csv(Bolt bolt);
-void bolt_print_json(Bolt bolt);
-void bolt_print_html(Bolt bolt);
-void bolt_print_xml(Bolt bolt);
+void bolt_print_csv (Bolt bolt);
+void bolt_print_json (Bolt bolt);
+void bolt_print_html (Bolt bolt);
+void bolt_print_xml (Bolt bolt);
 
-void bolt_save_csv(Bolt bolt, char *filename);
-void bolt_save_json(Bolt bolt, char *filename);
-void bolt_save_html(Bolt bolt, char *filename);
-void bolt_save_xml(Bolt bolt, char *filename);
+void bolt_save_csv (Bolt bolt, char *filename);
+void bolt_save_json (Bolt bolt, char *filename);
+void bolt_save_html (Bolt bolt, char *filename);
+void bolt_save_xml (Bolt bolt, char *filename);
 
 
 

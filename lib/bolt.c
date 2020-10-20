@@ -6,14 +6,14 @@
 
 
 Bolt
-bolt_new()
+bolt_new ()
 {
 	Bolt bolt = malloc(sizeof(Bolt_t));
 	return bolt;
 }
 
 Bolt
-bolt_delete(Bolt bolt)
+bolt_delete (Bolt bolt)
 {
 	free(bolt);
 	return NULL;
@@ -42,44 +42,44 @@ bolt_add_milestone (Bolt bolt, char *name)
 
 
 void
-bolt_run(Bolt bolt)
+bolt_run (Bolt bolt)
 {
 	if (bolt == NULL) return;
 }
 
 void
-bolt_run_actions(Bolt bolt)
+bolt_run_actions (Bolt bolt)
 {
 	if (bolt == NULL) return;
 }
 
 void
-bolt_run_experiments(Bolt bolt)
+bolt_run_experiments (Bolt bolt)
 {
 	if (bolt == NULL) return;
 }
 
 
 void
-bolt_print(Bolt bolt)
+bolt_print (Bolt bolt)
 {
 	if (bolt == NULL) return;
 }
 
 void
-bolt_print_actions(Bolt bolt)
+bolt_print_actions (Bolt bolt)
 {
 	if (bolt == NULL) return;
 }
 
 void
-bolt_print_experiments(Bolt bolt)
+bolt_print_experiments (Bolt bolt)
 {
 	if (bolt == NULL) return;
 }
 
 void
-bolt_print_milestones(Bolt bolt)
+bolt_print_milestones (Bolt bolt)
 {
 	if (bolt == NULL) return;
 }
@@ -87,28 +87,28 @@ bolt_print_milestones(Bolt bolt)
 
 
 char *
-bolt_get_csv(Bolt bolt)
+bolt_get_csv (Bolt bolt)
 {
 	if (bolt == NULL) return NULL;
 	return NULL;
 }
 
 char *
-bolt_get_json(Bolt bolt)
+bolt_get_json (Bolt bolt)
 {
 	if (bolt == NULL) return NULL;
 	return NULL;
 }
 
 char *
-bolt_get_html(Bolt bolt)
+bolt_get_html (Bolt bolt)
 {
 	if (bolt == NULL) return NULL;
 	return NULL;
 }
 
 char *
-bolt_get_xml(Bolt bolt)
+bolt_get_xml (Bolt bolt)
 {
 	if (bolt == NULL) return NULL;
 	return NULL;
@@ -124,25 +124,25 @@ bolt_get_xml(Bolt bolt)
 	printf("%s\n", bolt_get_func(bolt));
 
 void
-bolt_print_csv(Bolt bolt)
+bolt_print_csv (Bolt bolt)
 {
 	BOLT_PRINT_GENERIC(bolt_get_csv);
 }
 
 void
-bolt_print_json(Bolt bolt)
+bolt_print_json (Bolt bolt)
 {
 	BOLT_PRINT_GENERIC(bolt_get_json);
 }
 
 void
-bolt_print_html(Bolt bolt)
+bolt_print_html (Bolt bolt)
 {
 	BOLT_PRINT_GENERIC(bolt_get_html);
 }
 
 void
-bolt_print_xml(Bolt bolt)
+bolt_print_xml (Bolt bolt)
 {
 	BOLT_PRINT_GENERIC(bolt_get_xml);
 }
@@ -159,25 +159,25 @@ bolt_print_xml(Bolt bolt)
 	fclose(fp);
 
 void
-bolt_save_csv(Bolt bolt, char *filename)
+bolt_save_csv (Bolt bolt, char *filename)
 {
 	BOLT_SAVE_GENERIC(bolt_get_csv);
 }
 
 void
-bolt_save_json(Bolt bolt, char *filename)
+bolt_save_json (Bolt bolt, char *filename)
 {
 	BOLT_SAVE_GENERIC(bolt_get_json);
 }
 
 void
-bolt_save_html(Bolt bolt, char *filename)
+bolt_save_html (Bolt bolt, char *filename)
 {
 	BOLT_SAVE_GENERIC(bolt_get_html);
 }
 
 void
-bolt_save_xml(Bolt bolt, char *filename)
+bolt_save_xml (Bolt bolt, char *filename)
 {
 	BOLT_SAVE_GENERIC(bolt_get_xml);
 }
