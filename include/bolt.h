@@ -33,6 +33,11 @@ struct Bolt_t {
 	BoltMilestone milestones;
 	int milestones_count;
 	int milestones_capacity;
+
+	char *csv;
+	char *json;
+	char *html;
+	char *xml;
 };
 
 struct BoltAction_t {
