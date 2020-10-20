@@ -9,12 +9,31 @@ Bolt
 bolt_new ()
 {
 	Bolt bolt = malloc(sizeof(Bolt_t));
+
+	bolt->actions = malloc(BOLT_MIN_ACTIONS * sizeof(BoltAction_t));
+	bolt->actions_capacity = BOLT_MIN_ACTIONS;
+	bolt->actions_count = 0;
+
+	bolt->experiments = malloc(BOLT_MIN_EXPERIMENTS * sizeof(BoltExperiment_t));
+	bolt->experiments_capacity = BOLT_MIN_EXPERIMENTS;
+	bolt->experiments_count = 0;
+
+	bolt->milestones = malloc(BOLT_MIN_MILESTONES * sizeof(BoltMilestone_t));
+	bolt->milestones_capacity = BOLT_MIN_MILESTONES;
+	bolt->milestones_count = 0;
+
 	return bolt;
 }
 
 Bolt
 bolt_delete (Bolt bolt)
 {
+	if (bolt == NULL) return NULL;
+
+	if (bolt->actions != NULL) free (bolt->actions);
+	if (bolt->experiments != NULL) free (bolt->experiments);
+	if (bolt->milestones != NULL) free (bolt->milestones);
+
 	free(bolt);
 	return NULL;
 }

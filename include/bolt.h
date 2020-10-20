@@ -3,6 +3,10 @@
 
 #define BOLT_MAX_NAME_LENGTH 128
 
+#define BOLT_MIN_ACTIONS 16
+#define BOLT_MIN_EXPERIMENTS 16
+#define BOLT_MIN_MILESTONES 16
+
 #define BOLT_INIT Bolt bolt = bolt_new();
 #define BOLT_CLEAN bolt = bolt_delete(bolt);
 
