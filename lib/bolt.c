@@ -4,6 +4,24 @@
 
 
 
+char *bolt_get_csv(Bolt bolt) {
+	return NULL;
+}
+
+char *bolt_get_json(Bolt bolt) {
+	return NULL;
+}
+
+char *bolt_get_html(Bolt bolt) {
+	return NULL;
+}
+
+char *bolt_get_xml(Bolt bolt) {
+	return NULL;
+}
+
+
+
 void bolt_print_csv(Bolt bolt) {
 	printf("%s\n", bolt_get_csv(bolt));
 }

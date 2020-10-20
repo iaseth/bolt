@@ -73,15 +73,15 @@ void bolt_print_actions(Bolt bolt);
 void bolt_print_experiments(Bolt bolt);
 void bolt_print_milestones(Bolt bolt);
 
-void bolt_print_csv(Bolt bolt);
-void bolt_print_json(Bolt bolt);
-void bolt_print_html(Bolt bolt);
-void bolt_print_xml(Bolt bolt);
-
 char *bolt_get_csv(Bolt bolt);
 char *bolt_get_json(Bolt bolt);
 char *bolt_get_html(Bolt bolt);
 char *bolt_get_xml(Bolt bolt);
+
+void bolt_print_csv(Bolt bolt);
+void bolt_print_json(Bolt bolt);
+void bolt_print_html(Bolt bolt);
+void bolt_print_xml(Bolt bolt);
 
 void bolt_save_csv(Bolt bolt, char *filename);
 void bolt_save_json(Bolt bolt, char *filename);
