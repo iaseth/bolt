@@ -22,13 +22,13 @@ bolt_delete(Bolt bolt)
 
 
 void
-bolt_add_action (Bolt bolt, char *name, long iterations)
+bolt_add_action (Bolt bolt, void (*func)(), char *name, long iterations)
 {
 	if (bolt == NULL) return;
 }
 
 void
-bolt_add_experiment (Bolt bolt, char *name, long iterations)
+bolt_add_experiment (Bolt bolt, void (*func)(), char *name, long iterations)
 {
 	if (bolt == NULL) return;
 }

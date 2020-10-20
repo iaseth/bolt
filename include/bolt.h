@@ -6,6 +6,10 @@
 #define BOLT_INIT Bolt bolt = bolt_new();
 #define BOLT_CLEAN bolt = bolt_delete(bolt);
 
+#define BOLT_ACTION(func, count) bolt_add_action(bolt, func, #func, count);
+#define BOLT_EXPERIMENT(func, count) bolt_add_experiment(bolt, func, #func, count);
+#define BOLT_MILESTONE(name) bolt_add_milestone(bolt, name);
+
 struct Bolt_t;
 struct BoltAction_t;
 struct BoltExperiment_t;
