@@ -4,6 +4,24 @@
 
 
 
+void bolt_print_csv(Bolt bolt) {
+	printf("%s\n", bolt_get_csv(bolt));
+}
+
+void bolt_print_json(Bolt bolt) {
+	printf("%s\n", bolt_get_json(bolt));
+}
+
+void bolt_print_html(Bolt bolt) {
+	printf("%s\n", bolt_get_html(bolt));
+}
+
+void bolt_print_xml(Bolt bolt) {
+	printf("%s\n", bolt_get_xml(bolt));
+}
+
+
+
 #define BOLT_SAVE_GENERIC(bolt_get_func) FILE *fp = fopen(filename, "w"); \
 	if (fp == NULL) return; \
 	char *text = bolt_get_func(bolt); \
