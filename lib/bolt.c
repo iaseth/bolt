@@ -40,10 +40,11 @@ void bolt_print_xml(Bolt bolt) {
 
 
 
-#define BOLT_SAVE_GENERIC(bolt_get_func) FILE *fp = fopen(filename, "w"); \
+#define BOLT_SAVE_GENERIC(bolt_get_func) \
+	FILE *fp = fopen(filename, "w"); \
 	if (fp == NULL) return; \
 	char *text = bolt_get_func(bolt); \
-	int result = fputs(text, fp); \
+	fputs(text, fp); \
 	fclose(fp);
 
 void bolt_save_csv(Bolt bolt, char *filename) {
