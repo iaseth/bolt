@@ -55,7 +55,13 @@ void bolt_add_experiment (Bolt *bolt, char *name, long iterations);
 void bolt_add_milestone (Bolt *bolt, char *name);
 
 void bolt_run(Bolt *bolt);
+void bolt_run_actions(Bolt *bolt);
+void bolt_run_experiments(Bolt *bolt);
+
 void bolt_print(Bolt *bolt);
+void bolt_print_actions(Bolt *bolt);
+void bolt_print_experiments(Bolt *bolt);
+void bolt_print_milestones(Bolt *bolt);
 
 Bolt *bolt_delete(Bolt *bolt);
 
