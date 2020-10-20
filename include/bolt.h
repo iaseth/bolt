@@ -66,8 +66,8 @@ struct BoltMilestone_t {
 Bolt bolt_new();
 Bolt bolt_delete(Bolt bolt);
 
-void bolt_add_action (Bolt bolt, char *name, long iterations);
-void bolt_add_experiment (Bolt bolt, char *name, long iterations);
+void bolt_add_action (Bolt bolt, void (*func)(), char *name, long iterations);
+void bolt_add_experiment (Bolt bolt, void (*func)(), char *name, long iterations);
 void bolt_add_milestone (Bolt bolt, char *name);
 
 void bolt_run(Bolt bolt);
