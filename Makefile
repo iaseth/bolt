@@ -24,7 +24,7 @@ MAIN_OBJ = build/main.o
 BIN = build/bolt
 
 
-default: lib app run
+default: lib run
 lib: ${BOLT_STATIC_LIB} ${BOLT_DYNAMIC_LIB}
 
 
@@ -47,19 +47,6 @@ ${BOLT_DYNAMIC_LIB}: ${BOLT_OBJ}
 
 debug:
 	${eval AMP := }
-
-
-BOLT_APP_NAMES = 
-BOLT_APP_NAMES += example
-
-BOLT_APP_EXE_PATHS = ${addsuffix .app, ${BOLT_APP_NAMES}}
-BOLT_APP_EXES = ${addprefix build/app/, ${BOLT_APP_EXE_PATHS}}
-
-${BOLT_APP_EXES}: build/app/%.app: app/%.c
-	${CC} $^ -o $@ ${INCLUDE_FLAG}
-
-app: ${BOLT_APP_EXES}
-
 
 
 redo: clean default
