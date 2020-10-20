@@ -43,12 +43,14 @@ struct Bolt_t {
 struct BoltAction_t {
 	Bolt bolt;
 	char name[BOLT_MAX_NAME_LENGTH];
+	void (*func)();
 	long iterations;
 };
 
 struct BoltExperiment_t {
 	Bolt bolt;
 	char name[BOLT_MAX_NAME_LENGTH];
+	void (*func)();
 	long iterations;
 };
 
