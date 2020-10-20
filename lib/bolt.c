@@ -4,19 +4,54 @@
 
 
 
+void bolt_run(Bolt bolt) {
+	if (bolt == NULL) return;
+}
+
+void bolt_run_actions(Bolt bolt) {
+	if (bolt == NULL) return;
+}
+
+void bolt_run_experiments(Bolt bolt) {
+	if (bolt == NULL) return;
+}
+
+
+void bolt_print(Bolt bolt) {
+	if (bolt == NULL) return;
+}
+
+void bolt_print_actions(Bolt bolt) {
+	if (bolt == NULL) return;
+}
+
+void bolt_print_experiments(Bolt bolt) {
+	if (bolt == NULL) return;
+}
+
+void bolt_print_milestones(Bolt bolt) {
+	if (bolt == NULL) return;
+}
+
+
+
 char *bolt_get_csv(Bolt bolt) {
+	if (bolt == NULL) return NULL;
 	return NULL;
 }
 
 char *bolt_get_json(Bolt bolt) {
+	if (bolt == NULL) return NULL;
 	return NULL;
 }
 
 char *bolt_get_html(Bolt bolt) {
+	if (bolt == NULL) return NULL;
 	return NULL;
 }
 
 char *bolt_get_xml(Bolt bolt) {
+	if (bolt == NULL) return NULL;
 	return NULL;
 }
 
