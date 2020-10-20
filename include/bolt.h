@@ -59,6 +59,7 @@ struct BoltMilestone_t {
 
 
 Bolt bolt_new();
+Bolt bolt_delete(Bolt bolt);
 
 void bolt_add_action (Bolt bolt, char *name, long iterations);
 void bolt_add_experiment (Bolt bolt, char *name, long iterations);
@@ -87,8 +88,6 @@ void bolt_save_csv(Bolt bolt, char *filename);
 void bolt_save_json(Bolt bolt, char *filename);
 void bolt_save_html(Bolt bolt, char *filename);
 void bolt_save_xml(Bolt bolt, char *filename);
-
-Bolt bolt_delete(Bolt bolt);
 
 
 

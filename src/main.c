@@ -2,6 +2,7 @@
 #include <stdio.h>
 
 int main (int argc, char const *argv[]) {
-	printf("Hello, World!\n");
+	Bolt bolt = bolt_new();
+	bolt = bolt_delete(bolt);
 	return 0;
 }

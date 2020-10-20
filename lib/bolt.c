@@ -1,6 +1,43 @@
 #include "bolt.h"
 
 #include <stdio.h>
+#include <stdlib.h>
+
+
+
+Bolt
+bolt_new()
+{
+	Bolt bolt = malloc(sizeof(Bolt_t));
+	return bolt;
+}
+
+Bolt
+bolt_delete(Bolt bolt)
+{
+	free(bolt);
+	return NULL;
+}
+
+
+
+void
+bolt_add_action (Bolt bolt, char *name, long iterations)
+{
+	if (bolt == NULL) return;
+}
+
+void
+bolt_add_experiment (Bolt bolt, char *name, long iterations)
+{
+	if (bolt == NULL) return;
+}
+
+void
+bolt_add_milestone (Bolt bolt, char *name)
+{
+	if (bolt == NULL) return;
+}
 
 
 
