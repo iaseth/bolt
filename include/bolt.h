@@ -48,5 +48,17 @@ struct BoltMilestone {
 };
 
 
+Bolt *bolt_new();
+
+void bolt_add_action (Bolt *bolt, char *name, long iterations);
+void bolt_add_experiment (Bolt *bolt, char *name, long iterations);
+void bolt_add_milestone (Bolt *bolt, char *name);
+
+void bolt_run(Bolt *bolt);
+void bolt_print(Bolt *bolt);
+
+Bolt *bolt_delete(Bolt *bolt);
+
+
 
 #endif
