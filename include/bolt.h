@@ -25,6 +25,8 @@ typedef struct BoltAction_t *BoltAction;
 typedef struct BoltExperiment_t *BoltExperiment;
 typedef struct BoltMilestone_t *BoltMilestone;
 
+typedef void (*BoltFunction)();
+
 
 struct Bolt_t {
 	char name[BOLT_MAX_NAME_LENGTH];
@@ -70,8 +72,8 @@ struct BoltMilestone_t {
 Bolt bolt_new ();
 Bolt bolt_delete (Bolt bolt);
 
-void bolt_add_action (Bolt bolt, void (*func)(), char *name, long iterations);
-void bolt_add_experiment (Bolt bolt, void (*func)(), char *name, long iterations);
+void bolt_add_action (Bolt bolt, BoltFunction func, char *name, long iterations);
+void bolt_add_experiment (Bolt bolt, BoltFunction func, char *name, long iterations);
 void bolt_add_milestone (Bolt bolt, char *name);
 
 void bolt_run (Bolt bolt);
