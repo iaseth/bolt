@@ -1,49 +1,52 @@
 #ifndef BOLT_H
 #define BOLT_H
 
-#define BOLT_MAX_NAME_LENGTH 100
+#define BOLT_MAX_NAME_LENGTH 128
 
 struct Bolt;
-struct Action;
-struct Experiment;
-struct Milestone;
+struct BoltAction;
+struct BoltExperiment;
+struct BoltMilestone;
 
 typedef struct Bolt Bolt;
-typedef struct Action Action;
-typedef struct Experiment Experiment;
-typedef struct Milestone Milestone;
+typedef struct BoltAction BoltAction;
+typedef struct BoltExperiment BoltExperiment;
+typedef struct BoltMilestone BoltMilestone;
 
 
 struct Bolt {
 	char name[BOLT_MAX_NAME_LENGTH];
 
-	Action *actions;
+	BoltAction *actions;
 	int actions_count;
 	int actions_capacity;
 
-	Experiment *experiments;
+	BoltExperiment *experiments;
 	int experiments_count;
 	int experiments_capacity;
 
-	Milestone *milestones;
+	BoltMilestone *milestones;
 	int milestones_count;
 	int milestones_capacity;
 };
 
-struct Action {
+struct BoltAction {
+	Bolt *bolt;
+	char name[BOLT_MAX_NAME_LENGTH];
+	long iterations;
+};
+
+struct BoltExperiment {
+	Bolt *bolt;
+	char name[BOLT_MAX_NAME_LENGTH];
+	long iterations;
+};
+
+struct BoltMilestone {
 	Bolt *bolt;
 	char name[BOLT_MAX_NAME_LENGTH];
 };
 
-struct Experiment {
-	Bolt *bolt;
-	char name[BOLT_MAX_NAME_LENGTH];
-};
-
-struct Milestone {
-	Bolt *bolt;
-	char name[BOLT_MAX_NAME_LENGTH];
-};
 
 
 #endif
