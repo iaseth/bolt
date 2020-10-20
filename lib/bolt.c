@@ -57,21 +57,30 @@ char *bolt_get_xml(Bolt bolt) {
 
 
 
+#define BOLT_PRINT_GENERIC(bolt_get_func) \
+	if (bolt == NULL) { \
+		printf("Bolt is NULL!\n"); \
+		return; \
+	} \
+	printf("%s\n", bolt_get_func(bolt));
+
 void bolt_print_csv(Bolt bolt) {
-	printf("%s\n", bolt_get_csv(bolt));
+	BOLT_PRINT_GENERIC(bolt_get_csv);
 }
 
 void bolt_print_json(Bolt bolt) {
-	printf("%s\n", bolt_get_json(bolt));
+	BOLT_PRINT_GENERIC(bolt_get_json);
 }
 
 void bolt_print_html(Bolt bolt) {
-	printf("%s\n", bolt_get_html(bolt));
+	BOLT_PRINT_GENERIC(bolt_get_html);
 }
 
 void bolt_print_xml(Bolt bolt) {
-	printf("%s\n", bolt_get_xml(bolt));
+	BOLT_PRINT_GENERIC(bolt_get_xml);
 }
+
+#undef BOLT_PRINT_GENERIC
 
 
 
