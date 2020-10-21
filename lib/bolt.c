@@ -32,13 +32,20 @@ bolt_delete (Bolt bolt)
 {
 	if (bolt == NULL) return NULL;
 
-	if (bolt->actions != NULL) free (bolt->actions);
+	if (bolt->actions != NULL) {
+		for (int i = 0; i < bolt->actions_count; ++i) {
+			free(bolt->actions[i]);
+		}
+		free (bolt->actions);
+	}
+
 	if (bolt->experiments != NULL) {
 		for (int i = 0; i < bolt->experiments_count; ++i) {
 			free(bolt->experiments[i]);
 		}
 		free (bolt->experiments);
 	}
+
 	if (bolt->milestones != NULL) {
 		for (int i = 0; i < bolt->milestones_count; ++i) {
 			free(bolt->milestones[i]);
@@ -56,6 +63,22 @@ void
 bolt_add_action (Bolt bolt, BoltFunction func, char *name, long iterations)
 {
 	if (bolt == NULL) return;
+	if (func == NULL) return;
+	if (bolt->actions_count == bolt->actions_capacity) {
+		long new_capacity = bolt->actions_capacity * 2;
+		long size = new_capacity * sizeof(BoltAction);
+		bolt->actions = realloc(bolt->actions, size);
+		bolt->actions_capacity = new_capacity;
+	}
+
+	BoltAction action = malloc(sizeof(BoltAction_t));
+	strcpy(action->name, name);
+	action->bolt = bolt;
+	action->func = func;
+	action->iterations = iterations;
+
+	bolt->actions[bolt->actions_count] = action;
+	bolt->actions_count++;
 }
 
 void
