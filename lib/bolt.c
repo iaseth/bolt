@@ -105,10 +105,10 @@ bolt_add_experiment (Bolt bolt, BoltFunction func, char *name, long iterations)
 	return exp;
 }
 
-void
+BoltMilestone
 bolt_add_milestone (Bolt bolt, char *name)
 {
-	if (bolt == NULL) return;
+	if (bolt == NULL) return NULL;
 	if (bolt->milestones_count == bolt->milestones_capacity) {
 		long new_capacity = bolt->milestones_capacity * 2;
 		long size = new_capacity * sizeof(BoltMilestone);
@@ -122,6 +122,7 @@ bolt_add_milestone (Bolt bolt, char *name)
 
 	bolt->milestones[bolt->milestones_count] = milestone;
 	bolt->milestones_count++;
+	return milestone;
 }
 
 
