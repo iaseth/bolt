@@ -21,7 +21,9 @@ sample_experiment ()
 	}
 }
 
-int main (int argc, char const *argv[]) {
+int
+main (int argc, char const *argv[])
+{
 	BOLT_INIT("Bolt Internal");
 	BOLT_MILESTONE("Start");
 	BOLT_ACTION(sample_action, 1000);
@@ -29,5 +31,4 @@ int main (int argc, char const *argv[]) {
 	BOLT_MILESTONE("End");
 	BOLT_RUN;
 	BOLT_CLEAN;
-	return 0;
 }
