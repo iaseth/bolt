@@ -14,6 +14,8 @@
 #define BOLT_EXPERIMENT(func, count) bolt_add_experiment(bolt, func, #func, count);
 #define BOLT_MILESTONE(name) bolt_add_milestone(bolt, name);
 
+#define BOLT_RUN bolt_run(bolt);
+
 struct Bolt_t;
 struct BoltAction_t;
 struct BoltExperiment_t;
