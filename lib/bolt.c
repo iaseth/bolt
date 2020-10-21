@@ -150,6 +150,24 @@ bolt_add_action_cleanup (BoltAction action, BoltFunction func)
 
 
 void
+bolt_add_experiment_setup (BoltExperiment experiment, BoltFunction func)
+{
+	if (experiment == NULL) return;
+	if (func == NULL) return;
+	experiment->setup = func;
+}
+
+void
+bolt_add_experiment_cleanup (BoltExperiment experiment, BoltFunction func)
+{
+	if (experiment == NULL) return;
+	if (func == NULL) return;
+	experiment->cleanup = func;
+}
+
+
+
+void
 bolt_run (Bolt bolt)
 {
 	if (bolt == NULL) return;
