@@ -13,6 +13,7 @@ int main (int argc, char const *argv[]) {
 	BOLT_ACTION(do_some_stuff, 1000);
 	BOLT_EXPERIMENT(do_some_stuff, 1000);
 	BOLT_MILESTONE("End");
+	BOLT_RUN;
 	BOLT_CLEAN;
 	return 0;
 }

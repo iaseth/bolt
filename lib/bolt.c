@@ -128,18 +128,42 @@ void
 bolt_run (Bolt bolt)
 {
 	if (bolt == NULL) return;
+	bolt_run_actions(bolt);
+	bolt_run_experiments(bolt);
 }
 
 void
 bolt_run_actions (Bolt bolt)
 {
 	if (bolt == NULL) return;
+	if (bolt->actions != NULL) {
+		for (int i = 0; i < bolt->actions_count; ++i) {
+			BoltAction action = bolt->actions[i];
+			BoltFunction func = action->func;
+			long iterations = action->iterations;
+			printf("Running action: '%s'\n", action->name);
+			for (int iteration = 0; iteration < iterations; ++iteration) {
+				func();
+			}
+		}
+	}
 }
 
 void
 bolt_run_experiments (Bolt bolt)
 {
 	if (bolt == NULL) return;
+	if (bolt->experiments != NULL) {
+		for (int i = 0; i < bolt->experiments_count; ++i) {
+			BoltExperiment exp = bolt->experiments[i];
+			BoltFunction func = exp->func;
+			long iterations = exp->iterations;
+			printf("Running experiment: '%s'\n", exp->name);
+			for (int iteration = 0; iteration < iterations; ++iteration) {
+				func();
+			}
+		}
+	}
 }
 
 
