@@ -102,6 +102,9 @@ BoltAction bolt_add_action (Bolt bolt, BoltFunction func, char *name, long itera
 BoltExperiment bolt_add_experiment (Bolt bolt, BoltFunction func, char *name, long iterations);
 BoltMilestone bolt_add_milestone (Bolt bolt, char *name);
 
+void bolt_add_action_setup (BoltAction action, BoltFunction func);
+void bolt_add_action_cleanup (BoltAction action, BoltFunction func);
+
 void bolt_run (Bolt bolt);
 void bolt_run_actions (Bolt bolt);
 void bolt_run_experiments (Bolt bolt);

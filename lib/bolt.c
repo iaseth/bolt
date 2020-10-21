@@ -132,6 +132,24 @@ bolt_add_milestone (Bolt bolt, char *name)
 
 
 void
+bolt_add_action_setup (BoltAction action, BoltFunction func)
+{
+	if (action == NULL) return;
+	if (func == NULL) return;
+	action->setup = func;
+}
+
+void
+bolt_add_action_cleanup (BoltAction action, BoltFunction func)
+{
+	if (action == NULL) return;
+	if (func == NULL) return;
+	action->cleanup = func;
+}
+
+
+
+void
 bolt_run (Bolt bolt)
 {
 	if (bolt == NULL) return;
