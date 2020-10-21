@@ -214,9 +214,11 @@ bolt_run_experiments (Bolt bolt)
 			BoltFunction func = exp->func;
 			long iterations = exp->iterations;
 			printf("Running experiment: '%s'\n", exp->name);
+			if (exp->setup_func != NULL) exp->setup_func();
 			for (int iteration = 0; iteration < iterations; ++iteration) {
 				func();
 			}
+			if (exp->cleanup_func != NULL) exp->cleanup_func();
 		}
 	}
 }
