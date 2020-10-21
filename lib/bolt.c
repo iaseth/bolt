@@ -196,7 +196,11 @@ bolt_run_actions (Bolt bolt)
 void
 bolt_run_action (BoltAction action)
 {
+	if (action == NULL) return;
+
 	BoltFunction func = action->func;
+	if (func == NULL) return;
+
 	long iterations = action->iterations;
 	printf("Running action: '%s'\n", action->name);
 	if (action->setup_func != NULL) action->setup_func();
@@ -225,7 +229,11 @@ bolt_run_experiments (Bolt bolt)
 void
 bolt_run_experiment (BoltExperiment experiment)
 {
+	if (experiment == NULL) return;
+
 	BoltFunction func = experiment->func;
+	if (func == NULL) return;
+
 	long iterations = experiment->iterations;
 	printf("Running experiment: '%s'\n", experiment->name);
 	if (experiment->setup_func != NULL) experiment->setup_func();
