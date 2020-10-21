@@ -191,11 +191,13 @@ bolt_run_actions (Bolt bolt)
 			BoltFunction func = action->func;
 			long iterations = action->iterations;
 			printf("Running action: '%s'\n", action->name);
+			if (action->setup_func != NULL) action->setup_func();
 			timespec_get(&action->start, TIME_UTC);
 			for (int iteration = 0; iteration < iterations; ++iteration) {
 				func();
 			}
 			timespec_get(&action->end, TIME_UTC);
+			if (action->cleanup_func != NULL) action->cleanup_func();
 			long time_taken_ms = (action->end.tv_sec - action->start.tv_sec) * 1e6 + (action->end.tv_nsec - action->start.tv_nsec) / 1e3;
 			printf("\tTook %ldms.\n", time_taken_ms);
 		}
