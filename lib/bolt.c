@@ -217,18 +217,25 @@ bolt_run_experiments (Bolt bolt)
 	if (bolt->experiments != NULL) {
 		for (int i = 0; i < bolt->experiments_count; ++i) {
 			BoltExperiment experiment = bolt->experiments[i];
-			BoltFunction func = experiment->func;
-			long iterations = experiment->iterations;
-			printf("Running experiment: '%s'\n", experiment->name);
-			if (experiment->setup_func != NULL) experiment->setup_func();
-			for (int iteration = 0; iteration < iterations; ++iteration) {
-				func();
-			}
-			printf("\t%ld iterations complete.\n", iterations);
-			if (experiment->cleanup_func != NULL) experiment->cleanup_func();
+			bolt_run_experiment(experiment);
 		}
 	}
 }
+
+void
+bolt_run_experiment (BoltExperiment experiment)
+{
+	BoltFunction func = experiment->func;
+	long iterations = experiment->iterations;
+	printf("Running experiment: '%s'\n", experiment->name);
+	if (experiment->setup_func != NULL) experiment->setup_func();
+	for (int iteration = 0; iteration < iterations; ++iteration) {
+		func();
+	}
+	printf("\t%ld iterations complete.\n", iterations);
+	if (experiment->cleanup_func != NULL) experiment->cleanup_func();
+}
+
 
 
 void

@@ -120,6 +120,7 @@ void bolt_run (Bolt bolt);
 void bolt_run_actions (Bolt bolt);
 void bolt_run_action (BoltAction action);
 void bolt_run_experiments (Bolt bolt);
+void bolt_run_experiment (BoltExperiment experiment);
 
 void bolt_print (Bolt bolt);
 void bolt_print_actions (Bolt bolt);
