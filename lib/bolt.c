@@ -76,6 +76,8 @@ bolt_add_action (Bolt bolt, BoltFunction func, char *name, long iterations)
 	action->bolt = bolt;
 	action->func = func;
 	action->iterations = iterations;
+	action->setup = NULL;
+	action->cleanup = NULL;
 
 	bolt->actions[bolt->actions_count] = action;
 	bolt->actions_count++;
@@ -99,6 +101,8 @@ bolt_add_experiment (Bolt bolt, BoltFunction func, char *name, long iterations)
 	experiment->bolt = bolt;
 	experiment->func = func;
 	experiment->iterations = iterations;
+	experiment->setup = NULL;
+	experiment->cleanup = NULL;
 
 	bolt->experiments[bolt->experiments_count] = experiment;
 	bolt->experiments_count++;
