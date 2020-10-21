@@ -7,7 +7,12 @@
 #define BOLT_MIN_EXPERIMENTS 16
 #define BOLT_MIN_MILESTONES 16
 
-#define BOLT_INIT(name) Bolt bolt = bolt_new(name);
+#define BOLT_INIT(name) \
+	Bolt bolt = bolt_new(name); \
+	BoltAction action = NULL; \
+	BoltExperiment experiment = NULL; \
+	BoltMilestone milestone = NULL;
+
 #define BOLT_CLEAN bolt = bolt_delete(bolt);
 
 #define BOLT_ACTION(func, count) bolt_add_action(bolt, func, #func, count);
