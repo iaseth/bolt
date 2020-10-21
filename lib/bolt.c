@@ -59,11 +59,11 @@ bolt_delete (Bolt bolt)
 
 
 
-void
+BoltAction
 bolt_add_action (Bolt bolt, BoltFunction func, char *name, long iterations)
 {
-	if (bolt == NULL) return;
-	if (func == NULL) return;
+	if (bolt == NULL) return NULL;
+	if (func == NULL) return NULL;
 	if (bolt->actions_count == bolt->actions_capacity) {
 		long new_capacity = bolt->actions_capacity * 2;
 		long size = new_capacity * sizeof(BoltAction);
@@ -79,6 +79,7 @@ bolt_add_action (Bolt bolt, BoltFunction func, char *name, long iterations)
 
 	bolt->actions[bolt->actions_count] = action;
 	bolt->actions_count++;
+	return action;
 }
 
 void
