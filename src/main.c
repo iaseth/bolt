@@ -13,9 +13,11 @@ sample_action ()
 void
 sample_experiment ()
 {
-	int num = 0;
+	long num = 0;
 	for (int i = 0; i < 1e6; ++i) {
-		num++;
+		for (int i = 0; i < 100; ++i) {
+			num++;
+		}
 	}
 }
 
