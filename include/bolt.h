@@ -76,8 +76,12 @@ struct BoltAction_t {
 
 	struct timespec start, end;
 	long runs;
+
 	BoltFunction setup_func;
+	char setup_name[BOLT_MAX_NAME_LENGTH];
+
 	BoltFunction cleanup_func;
+	char cleanup_name[BOLT_MAX_NAME_LENGTH];
 };
 
 struct BoltExperiment_t {
@@ -85,8 +89,12 @@ struct BoltExperiment_t {
 	char name[BOLT_MAX_NAME_LENGTH];
 	BoltFunction func;
 	long iterations;
+
 	BoltFunction setup_func;
+	char setup_name[BOLT_MAX_NAME_LENGTH];
+
 	BoltFunction cleanup_func;
+	char cleanup_name[BOLT_MAX_NAME_LENGTH];
 };
 
 struct BoltMilestone_t {
