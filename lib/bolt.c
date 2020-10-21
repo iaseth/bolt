@@ -76,8 +76,8 @@ bolt_add_action (Bolt bolt, BoltFunction func, char *name, long iterations)
 	action->bolt = bolt;
 	action->func = func;
 	action->iterations = iterations;
-	action->setup = NULL;
-	action->cleanup = NULL;
+	action->setup_func = NULL;
+	action->cleanup_func = NULL;
 
 	bolt->actions[bolt->actions_count] = action;
 	bolt->actions_count++;
@@ -101,8 +101,8 @@ bolt_add_experiment (Bolt bolt, BoltFunction func, char *name, long iterations)
 	experiment->bolt = bolt;
 	experiment->func = func;
 	experiment->iterations = iterations;
-	experiment->setup = NULL;
-	experiment->cleanup = NULL;
+	experiment->setup_func = NULL;
+	experiment->cleanup_func = NULL;
 
 	bolt->experiments[bolt->experiments_count] = experiment;
 	bolt->experiments_count++;
@@ -136,7 +136,7 @@ bolt_add_action_setup (BoltAction action, BoltFunction func)
 {
 	if (action == NULL) return;
 	if (func == NULL) return;
-	action->setup = func;
+	action->setup_func = func;
 }
 
 void
@@ -144,7 +144,7 @@ bolt_add_action_cleanup (BoltAction action, BoltFunction func)
 {
 	if (action == NULL) return;
 	if (func == NULL) return;
-	action->cleanup = func;
+	action->cleanup_func = func;
 }
 
 
@@ -154,7 +154,7 @@ bolt_add_experiment_setup (BoltExperiment experiment, BoltFunction func)
 {
 	if (experiment == NULL) return;
 	if (func == NULL) return;
-	experiment->setup = func;
+	experiment->setup_func = func;
 }
 
 void
@@ -162,7 +162,7 @@ bolt_add_experiment_cleanup (BoltExperiment experiment, BoltFunction func)
 {
 	if (experiment == NULL) return;
 	if (func == NULL) return;
-	experiment->cleanup = func;
+	experiment->cleanup_func = func;
 }
 
 
