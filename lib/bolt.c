@@ -12,15 +12,15 @@ bolt_new (char *name)
 	Bolt bolt = malloc(sizeof(Bolt_t));
 	strcpy(bolt->name, name);
 
-	bolt->actions = malloc(BOLT_MIN_ACTIONS * sizeof(BoltAction_t));
+	bolt->actions = malloc(BOLT_MIN_ACTIONS * sizeof(BoltAction));
 	bolt->actions_capacity = BOLT_MIN_ACTIONS;
 	bolt->actions_count = 0;
 
-	bolt->experiments = malloc(BOLT_MIN_EXPERIMENTS * sizeof(BoltExperiment_t));
+	bolt->experiments = malloc(BOLT_MIN_EXPERIMENTS * sizeof(BoltExperiment));
 	bolt->experiments_capacity = BOLT_MIN_EXPERIMENTS;
 	bolt->experiments_count = 0;
 
-	bolt->milestones = malloc(BOLT_MIN_MILESTONES * sizeof(BoltMilestone_t));
+	bolt->milestones = malloc(BOLT_MIN_MILESTONES * sizeof(BoltMilestone));
 	bolt->milestones_capacity = BOLT_MIN_MILESTONES;
 	bolt->milestones_count = 0;
 
