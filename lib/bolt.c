@@ -82,11 +82,11 @@ bolt_add_action (Bolt bolt, BoltFunction func, char *name, long iterations)
 	return action;
 }
 
-void
+BoltExperiment
 bolt_add_experiment (Bolt bolt, BoltFunction func, char *name, long iterations)
 {
-	if (bolt == NULL) return;
-	if (func == NULL) return;
+	if (bolt == NULL) return NULL;
+	if (func == NULL) return NULL;
 	if (bolt->experiments_count == bolt->experiments_capacity) {
 		long new_capacity = bolt->experiments_capacity * 2;
 		long size = new_capacity * sizeof(BoltExperiment);
@@ -102,6 +102,7 @@ bolt_add_experiment (Bolt bolt, BoltFunction func, char *name, long iterations)
 
 	bolt->experiments[bolt->experiments_count] = exp;
 	bolt->experiments_count++;
+	return exp;
 }
 
 void
