@@ -34,6 +34,9 @@ typedef struct BoltMilestone_t *BoltMilestone;
 typedef void (*BoltFunction)();
 
 
+#include <time.h>
+
+
 struct Bolt_t {
 	char name[BOLT_MAX_NAME_LENGTH];
 
@@ -60,6 +63,9 @@ struct BoltAction_t {
 	char name[BOLT_MAX_NAME_LENGTH];
 	void (*func)();
 	long iterations;
+
+	struct timespec start, end;
+	long runs;
 };
 
 struct BoltExperiment_t {
