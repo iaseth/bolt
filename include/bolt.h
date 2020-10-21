@@ -35,15 +35,15 @@ typedef void (*BoltFunction)();
 struct Bolt_t {
 	char name[BOLT_MAX_NAME_LENGTH];
 
-	BoltAction actions;
+	BoltAction *actions;
 	int actions_count;
 	int actions_capacity;
 
-	BoltExperiment experiments;
+	BoltExperiment *experiments;
 	int experiments_count;
 	int experiments_capacity;
 
-	BoltMilestone milestones;
+	BoltMilestone *milestones;
 	int milestones_count;
 	int milestones_capacity;
 

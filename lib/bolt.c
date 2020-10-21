@@ -34,7 +34,12 @@ bolt_delete (Bolt bolt)
 
 	if (bolt->actions != NULL) free (bolt->actions);
 	if (bolt->experiments != NULL) free (bolt->experiments);
-	if (bolt->milestones != NULL) free (bolt->milestones);
+	if (bolt->milestones != NULL) {
+		for (int i = 0; i < bolt->milestones_count; ++i) {
+			free(bolt->milestones[i]);
+		}
+		free (bolt->milestones);
+	}
 
 	free(bolt);
 	return NULL;
@@ -58,6 +63,19 @@ void
 bolt_add_milestone (Bolt bolt, char *name)
 {
 	if (bolt == NULL) return;
+	if (bolt->milestones_count == bolt->milestones_capacity) {
+		long new_capacity = bolt->milestones_capacity * 2;
+		long size = new_capacity * sizeof(BoltMilestone);
+		bolt->milestones = realloc(bolt->milestones, size);
+		bolt->milestones_capacity = new_capacity;
+	}
+
+	BoltMilestone milestone = malloc(sizeof(BoltMilestone_t));
+	strcpy(milestone->name, name);
+	milestone->bolt = bolt;
+
+	bolt->milestones[bolt->milestones_count] = milestone;
+	bolt->milestones_count++;
 }
 
 
