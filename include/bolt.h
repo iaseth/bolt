@@ -71,7 +71,7 @@ struct Bolt_t {
 struct BoltAction_t {
 	Bolt bolt;
 	char name[BOLT_MAX_NAME_LENGTH];
-	void (*func)();
+	BoltFunction func;
 	long iterations;
 
 	struct timespec start, end;
@@ -81,7 +81,7 @@ struct BoltAction_t {
 struct BoltExperiment_t {
 	Bolt bolt;
 	char name[BOLT_MAX_NAME_LENGTH];
-	void (*func)();
+	BoltFunction func;
 	long iterations;
 };
 
