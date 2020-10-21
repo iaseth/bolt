@@ -7,7 +7,7 @@
 #define BOLT_MIN_EXPERIMENTS 16
 #define BOLT_MIN_MILESTONES 16
 
-#define BOLT_INIT Bolt bolt = bolt_new();
+#define BOLT_INIT(name) Bolt bolt = bolt_new(name);
 #define BOLT_CLEAN bolt = bolt_delete(bolt);
 
 #define BOLT_ACTION(func, count) bolt_add_action(bolt, func, #func, count);
@@ -73,7 +73,7 @@ struct BoltMilestone_t {
 };
 
 
-Bolt bolt_new ();
+Bolt bolt_new (char *name);
 Bolt bolt_delete (Bolt bolt);
 
 void bolt_add_action (Bolt bolt, BoltFunction func, char *name, long iterations);

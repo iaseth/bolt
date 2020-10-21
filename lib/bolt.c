@@ -2,13 +2,15 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 
 
 Bolt
-bolt_new ()
+bolt_new (char *name)
 {
 	Bolt bolt = malloc(sizeof(Bolt_t));
+	strcpy(bolt->name, name);
 
 	bolt->actions = malloc(BOLT_MIN_ACTIONS * sizeof(BoltAction_t));
 	bolt->actions_capacity = BOLT_MIN_ACTIONS;
