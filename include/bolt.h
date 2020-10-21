@@ -15,9 +15,14 @@
 
 #define BOLT_CLEAN bolt = bolt_delete(bolt);
 
-#define BOLT_ACTION(func, count) bolt_add_action(bolt, func, #func, count);
-#define BOLT_EXPERIMENT(func, count) bolt_add_experiment(bolt, func, #func, count);
-#define BOLT_MILESTONE(name) bolt_add_milestone(bolt, name);
+#define BOLT_ACTION(func, count) \
+	action = bolt_add_action(bolt, func, #func, count);
+
+#define BOLT_EXPERIMENT(func, count) \
+	experiment = bolt_add_experiment(bolt, func, #func, count);
+
+#define BOLT_MILESTONE(name) \
+	milestone = bolt_add_milestone(bolt, name);
 
 #define BOLT_RUN bolt_run(bolt);
 
