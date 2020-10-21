@@ -94,15 +94,15 @@ bolt_add_experiment (Bolt bolt, BoltFunction func, char *name, long iterations)
 		bolt->experiments_capacity = new_capacity;
 	}
 
-	BoltExperiment exp = malloc(sizeof(BoltExperiment_t));
-	strcpy(exp->name, name);
-	exp->bolt = bolt;
-	exp->func = func;
-	exp->iterations = iterations;
+	BoltExperiment experiment = malloc(sizeof(BoltExperiment_t));
+	strcpy(experiment->name, name);
+	experiment->bolt = bolt;
+	experiment->func = func;
+	experiment->iterations = iterations;
 
-	bolt->experiments[bolt->experiments_count] = exp;
+	bolt->experiments[bolt->experiments_count] = experiment;
 	bolt->experiments_count++;
-	return exp;
+	return experiment;
 }
 
 BoltMilestone
