@@ -118,6 +118,7 @@ void bolt_add_experiment_cleanup (BoltExperiment experiment, BoltFunction func);
 
 void bolt_run (Bolt bolt);
 void bolt_run_actions (Bolt bolt);
+void bolt_run_action (BoltAction action);
 void bolt_run_experiments (Bolt bolt);
 
 void bolt_print (Bolt bolt);
